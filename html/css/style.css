@@ -1,0 +1,42 @@
+#container {
+    display: none;
+}
+
+.deathscreen {
+    height: 30%;
+    width: 60%;
+    background: rgba(10, 10, 10, 0.4);
+    border: 2px solid rgb(255, 255, 255);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.deathscreen h3 {
+    margin: 0;
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+    color: #fff;
+    font-weight: 800;
+    font-family: 'Roboto', sans-serif;
+}
+
+.deathscreen h4 {
+    margin: 0;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
