@@ -1,5 +1,6 @@
 # elite_deathscreen
 A Fivem Deathscreen for QBCore Framework. No full resource, just code-snippets for qb-ambulancejob. Enjoy!
+I made this resource as someone sold this simple code and I wanted to give it to you for free.
 
 # How to install
 First of all, add the folder "html" to `qb-ambulancejob`
