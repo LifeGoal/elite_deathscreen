@@ -1,6 +1,17 @@
 # elite_deathscreen [QBCore - Ambulancejob snippet]
 A Fivem Deathscreen for QBCore Framework. No full resource, just code-snippets for qb-ambulancejob. Enjoy!
 
+<details>
+<summary>Preview (Bleeding out)</summary>
+<img src="https://cdn.discordapp.com/attachments/980803191518142595/989153172289368094/unknown.png">
+</details>
+
+<details>
+<summary>Preview (Dead)</summary>
+<img src="https://media.discordapp.net/attachments/980803191518142595/989153536308805682/unknown.png">
+</details>
+^ I have no preview for when you go in to the bed. But that is kind of the same but with just the text that you are getting helped.
+
 I will probably make this code more configurable and maybe make this as an contribution to the qb-ambulancejob resource when I get time for it. If anyone from the QB-Core team wants to use this and implement it fully to qb-ambulancejob, be my guest! :)
 
 Also, every text message except for when you are bleeding out is hardcoded for the moment. I will change this as soon as I can, or something..
@@ -10,6 +21,7 @@ Why I made this resource for you guys is because I see so many retarded paid-res
 **I hope you enjoy this free resource. As I said, I might make this a little better in the future but it works for $0. If you encounter any problems, make an issue here. If you want to contribute to this project, be my guest!**
 
 # How to install
+**Please make sure to change all the hardcoded text when you are implementing this to your server, as it's in Swedish from the beginning and I haven't really cared about making it configurable with locales yet!**
 First of all, add the folder `"html"` to `qb-ambulancejob`
 
 Go to `qb-ambulancejob/fxmanifest.lua` and add:
