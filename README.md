@@ -1,11 +1,16 @@
 # elite_deathscreen [QBCore - Ambulancejob snippet]
 A Fivem Deathscreen for QBCore Framework. No full resource, just code-snippets for qb-ambulancejob. Enjoy!
-I made this resource as someone sold this simple code and I wanted to give it to you for free.
 
-I will probably make this code more configurable and maybe make this as an contribution to the qb-ambulancejob when I get time to do it. If anyone from the QB-Core team wants to use this and implement it fully to qb-ambulancejob, be my guest! :)
+I will probably make this code more configurable and maybe make this as an contribution to the qb-ambulancejob resource when I get time for it. If anyone from the QB-Core team wants to use this and implement it fully to qb-ambulancejob, be my guest! :)
+
+Also, every text message except for when you are bleeding out is hardcoded for the moment. I will change this as soon as I can, or something..
+
+Why I made this resource for you guys is because I see so many retarded paid-resources which should be free as they take no time to make and there is no effort for such things. To take money from people for so simple resources blows my mind. I've myself never liked paid-resources except for when you have given your blood, sweat and tears to make them and for the time spent, take some small amounts because time is money ofc. But to (in my eyes) scam people like this is what I hate the most with what this community has grown to be.
+
+**I hope you enjoy this free resource. As I said, I might make this a little better in the future but it works for $0. If you encounter any problems, make an issue here. If you want to contribute to this project, be my guest!**
 
 # How to install
-First of all, add the folder "html" to `qb-ambulancejob`
+First of all, add the folder `"html"` to `qb-ambulancejob`
 
 Go to `qb-ambulancejob/fxmanifest.lua` and add:
 ```lua
