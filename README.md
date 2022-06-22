@@ -19,7 +19,7 @@ files {
 Go to `qb-ambulancejob/client/main.lua` and search for `hospital:client:SendToBed` then add:
 ```lua
 SendNUIMessage({
-        status = 'open',
+	status = 'open',
         type = 'bed',
         msg = "Du får hjälp, var god vänta!"
 })
@@ -71,36 +71,36 @@ end
 Then go down to row 178 and change:
 ```lua
 if LaststandTime > Laststand.MinimumRevive then
-                    DrawTxt(0.94, 1.44, 1.0, 1.0, 0.6, Lang:t('info.bleed_out', {time = math.ceil(LaststandTime)}), 255, 255, 255, 255)
-                else
-                    DrawTxt(0.845, 1.44, 1.0, 1.0, 0.6, Lang:t('info.bleed_out_help', {time = math.ceil(LaststandTime)}), 255, 255, 255, 255)
-                    if not emsNotified then
-                        DrawTxt(0.91, 1.40, 1.0, 1.0, 0.6, Lang:t('info.request_help'), 255, 255, 255, 255)
-                    else
-                        DrawTxt(0.90, 1.40, 1.0, 1.0, 0.6, Lang:t('info.help_requested'), 255, 255, 255, 255)
-                    end
+	DrawTxt(0.94, 1.44, 1.0, 1.0, 0.6, Lang:t('info.bleed_out', {time = math.ceil(LaststandTime)}), 255, 255, 255, 255)
+else
+	DrawTxt(0.845, 1.44, 1.0, 1.0, 0.6, Lang:t('info.bleed_out_help', {time = math.ceil(LaststandTime)}), 255, 255, 255, 255)
+	if not emsNotified then
+        	DrawTxt(0.91, 1.40, 1.0, 1.0, 0.6, Lang:t('info.request_help'), 255, 255, 255, 255)
+        else
+                DrawTxt(0.90, 1.40, 1.0, 1.0, 0.6, Lang:t('info.help_requested'), 255, 255, 255, 255)
+        end
 
-                    if IsControlJustPressed(0, 47) and not emsNotified then
-                        TriggerServerEvent('hospital:server:ambulanceAlert', Lang:t('info.civ_down'))
-                        emsNotified = true
-                    end
-                end
+        if IsControlJustPressed(0, 47) and not emsNotified then
+        	TriggerServerEvent('hospital:server:ambulanceAlert', Lang:t('info.civ_down'))
+                emsNotified = true
+        end
+end
 ```
 To:
 ```lua
 if LaststandTime > Laststand.MinimumRevive then
-                    SendNUIMessage({
-                        status = 'open',
-                        type = 'knockdown',
-                        time = math.ceil(LaststandTime),
-                        msg = Lang:t('info.bleed_out', {time = math.ceil(LaststandTime)})
-                    })
-                else
-                    SendNUIMessage({
-                        status = 'open',
-                        type = 'knockdown',
-                        time = math.ceil(LaststandTime),
-                        msg = Lang:t('info.bleed_out_help', {time = math.ceil(LaststandTime)})
-                    })
-                end
+	SendNUIMessage({
+        	status = 'open',
+                type = 'knockdown',
+                time = math.ceil(LaststandTime),
+                msg = Lang:t('info.bleed_out', {time = math.ceil(LaststandTime)})
+	})
+else
+	SendNUIMessage({
+        	status = 'open',
+                type = 'knockdown',
+                time = math.ceil(LaststandTime),
+                msg = Lang:t('info.bleed_out_help', {time = math.ceil(LaststandTime)})
+	})
+end
 ```
