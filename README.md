@@ -2,12 +2,12 @@
 A Fivem Deathscreen for QBCore Framework. No full resource, just code-snippets for qb-ambulancejob. Enjoy!
 
 <details>
-<summary>Preview (Bleeding out)</summary>
+<summary><b>Preview (Bleeding out)</b></summary>
 <img src="https://cdn.discordapp.com/attachments/980803191518142595/989153172289368094/unknown.png">
 </details>
 
 <details>
-<summary>Preview (Dead)</summary>
+<summary><b>Preview (Dead)</b></summary>
 <img src="https://media.discordapp.net/attachments/980803191518142595/989153536308805682/unknown.png">
 </details>
 ^ I have no preview for when you go in to the bed. But that is kind of the same but with just the text that you are getting helped.
