@@ -1,6 +1,8 @@
-# elite_deathscreen
+# elite_deathscreen [QBCore - Ambulancejob snippet]
 A Fivem Deathscreen for QBCore Framework. No full resource, just code-snippets for qb-ambulancejob. Enjoy!
 I made this resource as someone sold this simple code and I wanted to give it to you for free.
+
+I will probably make this code more configurable and maybe make this as an contribution to the qb-ambulancejob when I get time to do it. If anyone from the QB-Core team wants to use this and implement it fully to qb-ambulancejob, be my guest! :)
 
 # How to install
 First of all, add the folder "html" to `qb-ambulancejob`
@@ -104,3 +106,6 @@ else
 	})
 end
 ```
+
+# Credits
+Bits of code taken from some old resource I had laying around. An ID-Card resource tbh which just gave me the boilerplate for the javascript part!
