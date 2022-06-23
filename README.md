@@ -1,4 +1,5 @@
 # elite_deathscreen [QBCore - Ambulancejob snippet]
+## Thank you for your support on this project, very appreciated!
 A Fivem Deathscreen for QBCore Framework. No full resource, just code-snippets for qb-ambulancejob. Enjoy!
 
 <details>
@@ -24,6 +25,23 @@ Why I made this resource for you guys is because I see so many retarded paid-res
 **Please make sure to change all the hardcoded text when you are implementing this to your server, as it's in Swedish from the beginning and I haven't really cared about making it configurable with locales yet!**
 First of all, add the folder `"html"` to `qb-ambulancejob`
 
+Go to `qb-ambulancejob/locales` and find your locales file you are using, example `en.lua`.
+Then go ahead and add this code anywhere, like after `info` or whatever:
+```lua
+nui = {
+        respawn_title = "YOU DIED",
+        respawn_txt = 'RESPAWN IN:<font color="red"> %{deathtime} </font>SECONDS',
+        respawn_revive = 'HOLD [<font color="green">E</font>] IN<font color="red"> %{holdtime} </font>SECONDS TO RESPAWN FOR $<font color="yellow"> %{cost} </font>',
+        bleed_out_title = "YOU LOST CONSCIOUSNESS",
+        bleed_out = 'YOU WILL BLEED OUT IN:<font color="red"> %{time} </font>SECONDS',
+        bleed_out_help = 'YOU WILL BLEED OUT IN:<font color="red"> %{time} </font>SECONDS',
+        getting_helped_title = "YOU DIED",
+	getting_helped = 'YOU ARE GETTING HELPED, PLEASE WAIT!',
+},
+```
+It should look something like this:
+![image](https://user-images.githubusercontent.com/35453587/175284595-1757c0c7-1bcd-4768-8de6-8a32e2ed5b06.png)
+
 Go to `qb-ambulancejob/fxmanifest.lua` and add:
 ```lua
 ui_page 'html/index.html'
@@ -38,9 +56,9 @@ files {
 Go to `qb-ambulancejob/client/main.lua` and search for `hospital:client:SendToBed` then add:
 ```lua
 SendNUIMessage({
-	status = 'open',
-        type = 'bed',
-        msg = "Du får hjälp, var god vänta!"
+        status = 'open',
+        title = Lang:t('nui.getting_helped_title'),
+	msg = Lang:t('nui.getting_helped')
 })
 ```
 Below `SetBedCam()`
@@ -48,7 +66,7 @@ Below `SetBedCam()`
 Also search for `hospital:client:Revive` and add:
 ```lua
 SendNUIMessage({
-        status = "close"
+	status = "close"
 })
 ```
 Below `ResetPedMovementClipset(player, 0.0)`
@@ -56,34 +74,29 @@ Below `ResetPedMovementClipset(player, 0.0)`
 Go to `qb-ambulancejob/client/dead.lua` and search for `if not isInHospitalBed then` (Row 149), then change:
 ```lua
 if not isInHospitalBed then
-  if deathTime > 0 then
-    DrawTxt(0.93, 1.44, 1.0,1.0,0.6, Lang:t('info.respawn_txt', {deathtime = math.ceil(deathTime)}), 255, 255, 255, 255)
-  else
-    DrawTxt(0.865, 1.44, 1.0, 1.0, 0.6, Lang:t('info.respawn_revive', {holdtime = hold, cost = Config.BillCost}), 255, 255, 255, 255)
-  end
+	if deathTime > 0 then
+		DrawTxt(0.93, 1.44, 1.0,1.0,0.6, Lang:t('info.respawn_txt', {deathtime = math.ceil(deathTime)}), 255, 255, 255, 255)
+	else
+		DrawTxt(0.865, 1.44, 1.0, 1.0, 0.6, Lang:t('info.respawn_revive', {holdtime = hold, cost = Config.BillCost}), 255, 255, 255, 255)
+	end
 end
 ```
 To:
 ```lua
 if not isInHospitalBed then
-  if deathTime > 0 then
-    SendNUIMessage({
-      status = 'open',
-      type = 'death',
-      timer = deathTime,
-      msg1 = 'RESPAWNA OM: <font color="red">',
-      msg2 = ' <font color="white">SEKUNDER',
-    })
-  else
-    SendNUIMessage({
-      status = 'open',
-      type = 'deathrevive',
-      cost = Config.BillCost,
-      holdtime = hold,
-      msg1 = 'HÅLL [<font color="red">E<font color="white">] I ',
-      msg2 = ' SEKUNDER FÖR ATT RESPAWNA FÖR <font color="green">',
-    })
-  end
+	if deathTime > 0 then
+		SendNUIMessage({
+			status = 'open',
+			title = Lang:t('nui.respawn_title'),
+			msg = Lang:t('nui.respawn_txt', {deathtime = deathTime})
+		})
+	else
+		SendNUIMessage({
+                        status = 'open',
+                        title = Lang:t('nui.respawn_title'),
+			msg = Lang:t('nui.respawn_revive', {holdtime = hold, cost = Config.BillCost})
+		})
+	end
 end
 ```
 
@@ -109,17 +122,15 @@ To:
 ```lua
 if LaststandTime > Laststand.MinimumRevive then
 	SendNUIMessage({
-        	status = 'open',
-                type = 'knockdown',
-                time = math.ceil(LaststandTime),
-                msg = Lang:t('info.bleed_out', {time = math.ceil(LaststandTime)})
+		status = 'open',
+		title = Lang:t('nui.bleed_out_title'),
+		msg = Lang:t('nui.bleed_out', {time = math.ceil(LaststandTime)})
 	})
 else
 	SendNUIMessage({
-        	status = 'open',
-                type = 'knockdown',
-                time = math.ceil(LaststandTime),
-                msg = Lang:t('info.bleed_out_help', {time = math.ceil(LaststandTime)})
+		status = 'open',
+		title = Lang:t('nui.bleed_out_title'),
+		msg = Lang:t('nui.bleed_out_help', {time = math.ceil(LaststandTime)})
 	})
 end
 ```
