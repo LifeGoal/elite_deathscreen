@@ -4,7 +4,7 @@ A Fivem Deathscreen for QBCore Framework. No full resource, just code-snippets f
 
 <details>
 <summary><b>Preview (Bleeding out)</b></summary>
-<img src="https://cdn.discordapp.com/attachments/980803191518142595/989153172289368094/unknown.png">
+<img src="https://forum.cfx.re/uploads/default/optimized/4X/9/3/0/930d01fcc206ed59a2fb1fdba493844a21a4423e_2_690x388.jpeg">
 </details>
 
 <details>
