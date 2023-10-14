@@ -134,6 +134,3 @@ else
 	})
 end
 ```
-
-# Credits
-Bits of code taken from some old resource I had laying around. An ID-Card resource tbh which just gave me the boilerplate for the javascript part!
